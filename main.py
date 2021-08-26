@@ -97,5 +97,5 @@ async def flood():
     #additional
     print("starting additional flood")
     await levelReup(random.randint(level_range[0], level_range[1]))
-    await getSong(random.randint(111111,999999))
+    #if you need flood with songs it will speed down the process |await getSong(random.randint(111111,999999))
 
