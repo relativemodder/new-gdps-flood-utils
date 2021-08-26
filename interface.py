@@ -1,5 +1,6 @@
 import os
 import asyncio
+import requests
 try:
     import main
 except ModuleNotFoundError:
@@ -14,7 +15,17 @@ if(iters == -1):
     print("Exiting...")
 if(iters == 0):
     while True:
-        asyncio.run(main.flood())
+        try:
+            ipr = requests.get("http://ifconfig.me/ip")
+            print("Your ip is ", ipr.text)
+            asyncio.run(main.flood())
+        except:
+            print("Unstable network!")
 else:
     for i in range(iters):
-        asyncio.run(main.flood())
+        try:
+            ipr = requests.get("http://ifconfig.me/ip")
+            print("Your ip is ", ipr.text)
+            asyncio.run(main.flood())
+        except:
+            print("Unstable network!")
